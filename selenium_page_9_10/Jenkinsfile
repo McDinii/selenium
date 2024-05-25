@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone repository') {
-            steps {
-                git url: 'https://github.com/McDinii/selenium.git'
-            }
-        }
         stage('Set up Python environment') {
             steps {
                 script {
