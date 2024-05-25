@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh '''
                     source /Users/mcdinii/McDinii_backup/Work/Dall_E_3_things/selenium_9-12/selenium_page_9_10/.venv/bin/activate
-                    cd selenium/selenium_page_9_10/tests
+                    cd /Users/mcdinii/McDinii_backup/Work/Dall_E_3_things/selenium_9-12/selenium_page_9_10/tests
                     python -m unittest test_3_add_to_wish_list.FavoritesTest
                 '''
             }
