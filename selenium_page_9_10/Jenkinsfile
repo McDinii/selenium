@@ -2,26 +2,19 @@ pipeline {
     agent any
 
     environment {
-        PYTHON_HOME = '/Users/mcdinii/McDinii_backup/Work/Dall_E_3_things/selenium_9-12/selenium_page_9_10/.venv/bin/python'  // Пример пути к локальному Python
-        PATH = "${PYTHON_HOME}/bin:${env.PATH}"
+        VENV_PATH = '/Users/mcdinii/McDinii_backup/Work/Dall_E_3_things/selenium_9-12/selenium_page_9_10/.venv'
+        PYTHON_HOME = "${VENV_PATH}/bin/python"
+        PATH = "${VENV_PATH}/bin:${env.PATH}"
+        PYTHONPATH = "/Users/mcdinii/McDinii_backup/Work/Dall_E_3_things/selenium_9-12/selenium_page_9_10"
     }
 
     stages {
-//         stage('Set up Python environment') {
-//             steps {
-//                 sh '''
-//                     python3 -m venv selenium/selenium_page_9_10/.venv
-//                     source selenium/selenium_page_9_10/.venv/bin/activate
-//                     pip install -r selenium/selenium_page_9_10/req.txt
-//                 '''
-//             }
-//         }
         stage('Run tests') {
             steps {
                 sh '''
-                    source /Users/mcdinii/McDinii_backup/Work/Dall_E_3_things/selenium_9-12/selenium_page_9_10/.venv/bin/activate
+                    source ${VENV_PATH}/bin/activate
                     cd /Users/mcdinii/McDinii_backup/Work/Dall_E_3_things/selenium_9-12/selenium_page_9_10/tests
-                    /Users/mcdinii/McDinii_backup/Work/Dall_E_3_things/selenium_9-12/selenium_page_9_10/.venv/bin/python -m unittest test_3_add_to_wish_list.FavoritesTest
+                    ${PYTHON_HOME} -m unittest test_3_add_to_wish_list.FavoritesTest
                 '''
             }
         }
