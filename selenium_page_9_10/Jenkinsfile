@@ -21,7 +21,7 @@ pipeline {
                 sh '''
                     source /Users/mcdinii/McDinii_backup/Work/Dall_E_3_things/selenium_9-12/selenium_page_9_10/.venv/bin/activate
                     cd /Users/mcdinii/McDinii_backup/Work/Dall_E_3_things/selenium_9-12/selenium_page_9_10/tests
-                    python -m unittest test_3_add_to_wish_list.FavoritesTest
+                    /Users/mcdinii/McDinii_backup/Work/Dall_E_3_things/selenium_9-12/selenium_page_9_10/.venv/bin/python -m unittest test_3_add_to_wish_list.FavoritesTest
                 '''
             }
         }
