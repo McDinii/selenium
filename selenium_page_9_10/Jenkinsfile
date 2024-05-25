@@ -1,21 +1,21 @@
 pipeline {
     agent any
 
+    environment {
+        PYTHON_HOME = '/Users/mcdinii/McDinii_backup/Work/Dall_E_3_things/selenium_9-12/selenium_page_9_10/.venv/bin/python'  // Пример пути к локальному Python
+        PATH = "${PYTHON_HOME}/bin:${env.PATH}"
+    }
+
     stages {
-        stage('Set up Python environment') {
-            steps {
-                script {
-                    def pythonHome = tool name: 'Python 3', type: 'Python'
-                    env.PYTHON_HOME = "${pythonHome}"
-                    env.PATH = "${pythonHome}/bin:${env.PATH}"
-                }
-                sh '''
-                    python3 -m venv selenium/selenium_page_9_10/.venv
-                    source selenium/selenium_page_9_10/.venv/bin/activate
-                    pip install -r selenium/selenium_page_9_10/req.txt
-                '''
-            }
-        }
+//         stage('Set up Python environment') {
+//             steps {
+//                 sh '''
+//                     python3 -m venv selenium/selenium_page_9_10/.venv
+//                     source selenium/selenium_page_9_10/.venv/bin/activate
+//                     pip install -r selenium/selenium_page_9_10/req.txt
+//                 '''
+//             }
+//         }
         stage('Run tests') {
             steps {
                 sh '''
